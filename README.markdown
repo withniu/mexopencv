@@ -1,3 +1,14 @@
+Change enum to be compatible with OpenCV 3.0.0. Remove private folder in src.
+
+Force MATLAB to load latest lib
+export LD_PRELOAD=/usr/local/lib/libopencv_core.so.3.0:/usr/local/lib/libopencv_highgu    i.so.3.0:/usr/local/lib/libopencv_calib3d.so.3.0:/usr/local/lib/libopencv_features2d.s    o.3.0:/usr/local/lib/libopencv_flann.so.3.0:/usr/local/lib/libopencv_imgproc.so.3.0:/u    sr/local/lib/libopencv_ml.so.3.0:/usr/local/lib/libopencv_video.so.3.0 matlab
+
+
+
+
+
+
+
 mexopencv
 =========
 
