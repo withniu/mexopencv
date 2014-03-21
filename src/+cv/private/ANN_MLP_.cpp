@@ -201,7 +201,7 @@ void mexFunction( int nlhs, mxArray *plhs[],
         if (nrhs!=2 || nlhs>1)
             mexErrMsgIdAndTxt("mexopencv:error","Wrong number of arguments");
         const CvMat* ls = obj.get_layer_sizes();
-        plhs[0] = MxArray(Mat(ls));
+        plhs[0] = MxArray(Mat(CvMat*(ls)));
     }
     else if (method == "get_weights") {
         if (nrhs!=3 || nlhs>1)

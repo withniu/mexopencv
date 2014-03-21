@@ -1,4 +1,4 @@
-MATLABDIR   ?= /usr/local/matlab
+MATLABDIR   ?= /usr/local/MATLAB/R2013b
 MEX         ?= $(MATLABDIR)/bin/mex
 MV          ?= mv
 AR          ?= ar
@@ -11,12 +11,14 @@ INCLUDEDIR  := include
 LIBDIR      := lib
 SRCDIR	    := src
 MEXDIR	    := $(SRCDIR)/$(TARGETDIR)
-SRCS        := $(wildcard $(MEXDIR)/*.cpp) $(wildcard $(MEXDIR)/private/*.cpp)
+#SRCS        := $(wildcard $(MEXDIR)/*.cpp) $(wildcard $(MEXDIR)/private/*.cpp)
+SRCS        := $(wildcard $(MEXDIR)/*.cpp) 
 TARGETS     := $(subst $(MEXDIR), $(TARGETDIR), $(SRCS:.cpp=.$(MEXEXT)))
 C_FLAGS     := -cxx -largeArrayDims -I$(INCLUDEDIR) $(shell pkg-config --cflags opencv)
 LD_FLAGS    := -L$(LIBDIR) $(shell pkg-config --libs opencv)
 
-VPATH       = $(TARGETDIR):$(SRCDIR):$(MEXDIR):$(TARGETDIR)/private:$(SRCDIR)/private
+#VPATH       = $(TARGETDIR):$(SRCDIR):$(MEXDIR):$(TARGETDIR)/private:$(SRCDIR)/private
+VPATH       = $(TARGETDIR):$(SRCDIR):$(MEXDIR)
 
 .PHONY : all clean doc test
 
